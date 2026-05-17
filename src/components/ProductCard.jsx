@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import WaIcon from './WaIcon';
+import BrandLogo from './BrandLogo';
 import { waLink } from '../data/products';
 
 export default function ProductCard({ product, index = 0 }) {
@@ -12,10 +13,16 @@ export default function ProductCard({ product, index = 0 }) {
         {/* Mockup visual */}
         <div className="flex flex-col items-center gap-2">
           <div className="w-20 h-28 bg-white/30 rounded-2xl backdrop-blur-sm border border-white/40 flex flex-col items-center justify-center gap-2 shadow-lg">
-            <div className="w-10 h-10 rounded-full bg-white/50 backdrop-blur-sm" />
-            <div className="w-12 h-1.5 rounded-full bg-white/60" />
-            <div className="w-8 h-1 rounded-full bg-white/40" />
-            <div className="w-10 h-1 rounded-full bg-white/40" />
+            <BrandLogo
+              showWordmark={false}
+              markClassName="h-8 w-10"
+              className="opacity-95"
+            />
+            <span className="text-[7px] tracking-[0.08em] uppercase text-white/85 font-semibold">
+              {product.shortName}
+            </span>
+            <div className="w-10 h-[3px] rounded-full bg-white/60" />
+            <div className="w-7 h-[2px] rounded-full bg-white/45" />
           </div>
           <div className="text-white/70 text-[10px] font-medium tracking-[2px] uppercase">
             {product.weight}

@@ -1,4 +1,10 @@
-export default function TestimonialCard({ testimonial, index = 0 }) {
+export default function TestimonialCard({
+  testimonial,
+  index = 0,
+  className = '',
+  isActive = false,
+  disableReveal = false,
+}) {
   const avatarGradients = [
     'from-sage to-forest',
     'from-earth to-[#c49a5a]',
@@ -7,7 +13,11 @@ export default function TestimonialCard({ testimonial, index = 0 }) {
   ];
 
   return (
-    <div className={`reveal reveal-delay-${index + 1} relative bg-warmwhite border border-forest/7 rounded-[24px] p-7 hover:border-sage/25 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(30,58,42,0.1)]`}>
+    <div
+      className={`${disableReveal ? '' : `reveal reveal-delay-${index + 1}`} ${disableReveal ? 'visible' : ''} relative h-full bg-warmwhite border border-forest/7 rounded-[24px] p-7 transition-all duration-500 will-change-transform ${
+        isActive ? 'border-sage/18 shadow-[0_18px_50px_rgba(30,58,42,0.08)]' : ''
+      } ${className}`}
+    >
       {/* Product tag */}
       <span className="absolute top-5 right-5 text-[10px] uppercase tracking-[1.5px] text-sage font-medium">
         {testimonial.product}

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import WaIcon from '../components/WaIcon';
 import CTASection from '../components/CTASection';
 import { usePageReveal } from '../hooks/useReveal';

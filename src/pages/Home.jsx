@@ -1,111 +1,19 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import WaIcon from '../components/WaIcon';
 import ProductCard from '../components/ProductCard';
-import TestimonialCard from '../components/TestimonialCard';
 import TrustSection from '../components/TrustSection';
 import CTASection from '../components/CTASection';
+import TestimonialCarousel from '../components/testimonials/TestimonialCarousel';
+import HeroSection from '../components/hero/HeroSection';
 import { usePageReveal } from '../hooks/useReveal';
 import { products, combos, testimonials, waLink } from '../data/products';
-
-// Botanical SVG illustration
-function BotanicalSVG() {
-  return (
-    <svg
-      viewBox="0 0 380 480"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full opacity-[0.13] animate-[leaf-sway_8s_ease-in-out_infinite]"
-      style={{ animation: 'float 8s ease-in-out infinite' }}
-    >
-      <path d="M190 460 C190 460 70 355 55 240 C40 130 115 55 190 18 C265 55 340 130 325 240 C310 355 190 460 190 460Z" fill="rgba(143,190,160,1)" />
-      <path d="M190 440 Q95 330 115 215 Q138 115 190 58 Q242 115 265 215 Q285 330 190 440Z" fill="rgba(78,124,95,1)" opacity="0.7" />
-      <ellipse cx="118" cy="195" rx="65" ry="26" fill="rgba(143,190,160,1)" transform="rotate(-28 118 195)" opacity="0.8" />
-      <ellipse cx="262" cy="175" rx="65" ry="26" fill="rgba(143,190,160,1)" transform="rotate(28 262 175)" opacity="0.8" />
-      <ellipse cx="100" cy="290" rx="55" ry="22" fill="rgba(201,168,76,0.4)" transform="rotate(-18 100 290)" />
-      <ellipse cx="280" cy="278" rx="55" ry="22" fill="rgba(201,168,76,0.4)" transform="rotate(18 280 278)" />
-      <path d="M190 385 Q152 325 163 288 Q174 252 190 234 Q206 252 217 288 Q228 325 190 385Z" fill="rgba(201,168,76,0.5)" />
-    </svg>
-  );
-}
 
 export default function Home() {
   usePageReveal();
 
   return (
     <div>
-      {/* ─── HERO ─── */}
-      <section className="min-h-screen bg-forest relative flex items-center overflow-hidden">
-        {/* Radial bg */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_85%_at_80%_50%,rgba(46,90,61,0.55),transparent_70%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_60%_at_5%_85%,rgba(78,124,95,0.3),transparent_65%)]" />
-        </div>
-
-        {/* Botanical */}
-        <div className="absolute right-[-4%] top-1/2 -translate-y-1/2 w-[54%] max-w-[640px] pointer-events-none">
-          <BotanicalSVG />
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-20 w-full">
-          <div className="max-w-[600px]">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 bg-goldlight/12 border border-goldlight/25 text-goldlight text-[11px] font-medium tracking-[2px] uppercase px-4 py-2 rounded-full mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-              100% Organic · Chemical-Free · Jalandhar, Punjab
-            </div>
-
-            <h1 className="font-serif text-[clamp(44px,6.5vw,80px)] text-cream font-bold leading-[1.06] mb-6">
-              Your body deserves{' '}
-              <em className="italic text-gradient-gold">real nutrition,</em>
-              <br />not shortcuts.
-            </h1>
-
-            <p className="font-display text-[clamp(18px,2.3vw,23px)] text-cream/65 font-light leading-relaxed mb-10 max-w-[480px]">
-              Pure herbal powders and botanicals — grown honestly, packed with care. One teaspoon a day is all it takes to feel the difference.
-            </p>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href={waLink("Hi MicroMagic! I'd like to order. Can you help me choose the right product?")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-wa text-[15px] px-8 py-4"
-              >
-                <WaIcon size={20} />
-                Order in 30 seconds
-              </a>
-              <Link
-                to="/products"
-                className="text-cream/60 text-sm font-medium hover:text-cream transition-colors flex items-center gap-2"
-              >
-                See all products <span>↓</span>
-              </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="flex flex-wrap gap-10 mt-16 pt-10 border-t border-cream/10">
-              {[
-                { num: '3', label: 'Herbal Products' },
-                { num: '100%', label: 'Chemical-Free' },
-                { num: '₹350', label: 'Starting From' },
-                { num: 'Punjab', label: 'Sourced From' },
-              ].map((s) => (
-                <div key={s.label}>
-                  <span className="font-serif text-[26px] text-goldlight font-bold block">{s.num}</span>
-                  <span className="text-[11px] text-cream/40 uppercase tracking-[1.5px]">{s.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/30 text-[10px] tracking-[2.5px] uppercase">
-          <div className="w-px h-6 bg-gradient-to-b from-cream/30 to-transparent animate-bounce" />
-          Scroll
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ─── PROBLEM ─── */}
       <section className="py-24 px-6 bg-parchment relative overflow-hidden">
@@ -243,10 +151,8 @@ export default function Home() {
               What they're saying
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={i} testimonial={t} index={i} />
-            ))}
+          <div className="reveal reveal-delay-2">
+            <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
       </section>

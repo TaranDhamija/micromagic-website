@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import WaIcon from './WaIcon';
+import BrandLogo from './BrandLogo';
 import { waLink } from '../data/products';
 
 const navLinks = [
@@ -21,8 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => { setMenuOpen(false); }, [location]);
-
   const isHome = location.pathname === '/';
 
   return (
@@ -37,11 +36,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className={`font-serif text-xl font-bold tracking-tight transition-colors ${
-            scrolled || !isHome ? 'text-forest' : 'text-cream'
+          className={`transition-all duration-300 origin-left ${
+            scrolled || !isHome ? 'scale-[0.92]' : 'scale-100'
           }`}
         >
-          Micro<span className="text-gold">Magic</span>
+          <BrandLogo
+            markClassName="h-7 w-12 md:h-8 md:w-14"
+            textClassName="text-[26px] md:text-[30px]"
+            lightWordmark={!scrolled && isHome}
+            className="items-center"
+          />
         </Link>
 
         {/* Desktop Links */}
@@ -99,6 +103,7 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
+              onClick={() => setMenuOpen(false)}
               className={`py-3 text-sm font-medium border-b border-forest/6 transition-colors ${
                 location.pathname === link.to ? 'text-sage' : 'text-textmid hover:text-forest'
               }`}
@@ -110,6 +115,7 @@ export default function Navbar() {
             href={waLink("Hi MicroMagic! I'd like to place an order.")}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
             className="btn-wa mt-3 justify-center"
           >
             <WaIcon size={16} /> Order on WhatsApp

@@ -1,4 +1,5 @@
 import { useReveal } from '../hooks/useReveal';
+import BrandLogo from './BrandLogo';
 
 const trustItems = [
   {
@@ -93,7 +94,7 @@ export default function TrustSection() {
         </div>
 
         {/* Cert badges */}
-        <div className="reveal flex flex-wrap justify-center gap-3">
+        <div className="reveal flex flex-wrap justify-center gap-3 mb-7">
           {certBadges.map((badge, i) => (
             <div
               key={i}
@@ -110,6 +111,16 @@ export default function TrustSection() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="reveal flex justify-center">
+          <div className="bg-white border border-forest/10 rounded-2xl px-6 py-4">
+            <BrandLogo
+              monochrome
+              markClassName="h-8 w-14"
+              textClassName="text-[30px]"
+              className="items-center opacity-75"
+            />
+          </div>
         </div>
       </div>
     </section>

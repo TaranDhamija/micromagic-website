@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import WaIcon from './WaIcon';
+import BrandLogo from './BrandLogo';
 import { waLink } from '../data/products';
 
 export default function Footer() {
@@ -9,9 +10,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-cream/8">
           {/* Brand */}
           <div>
-            <div className="font-serif text-2xl font-bold mb-3">
-              Micro<span className="text-gold">Magic</span>
-            </div>
+            <BrandLogo
+              markClassName="h-10 w-16"
+              textClassName="text-[38px]"
+              lightWordmark
+              className="items-center mb-4"
+            />
             <p className="font-display italic text-cream/45 text-base leading-relaxed mb-6">
               Pure Herbal Solution for Modern Living.
               <br />Honest plants. Simple habits. Real nourishment.
@@ -26,6 +30,28 @@ export default function Footer() {
               <p className="flex items-center gap-3 text-sm text-cream/40">
                 <span className="text-base">📍</span> Jalandhar, Punjab, India
               </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={waLink("Hi MicroMagic! I'd like to know more about your products.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+              >
+                WhatsApp
+              </a>
+              <a
+                href="mailto:micromagic.ceo@gmail.com"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+              >
+                Email
+              </a>
+              <a
+                href="tel:+919417027979"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+              >
+                Call
+              </a>
             </div>
           </div>
 
