@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import WaIcon from '../components/WaIcon';
 import ProductsGrid from '../components/ProductsGrid';
+import UpcomingProducts from '../components/UpcomingProducts';
 import TrustSection from '../components/TrustSection';
 import CTASection from '../components/CTASection';
 import TestimonialCarousel from '../components/testimonials/TestimonialCarousel';
@@ -121,6 +122,8 @@ export default function Home() {
           </div>
 
           <ProductsGrid products={products} />
+
+          <UpcomingProducts />
 
           <div className="text-center mt-10 reveal">
             <Link to="/products" className="btn-forest inline-flex text-sm px-6 py-3">

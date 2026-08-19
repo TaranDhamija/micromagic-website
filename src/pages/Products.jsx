@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import ProductsGrid from '../components/ProductsGrid';
+import UpcomingProducts from '../components/UpcomingProducts';
 import CTASection from '../components/CTASection';
 import WaIcon from '../components/WaIcon';
 import { usePageReveal } from '../hooks/useReveal';
@@ -74,6 +75,8 @@ export default function Products() {
           </div>
 
           <ProductsGrid products={products} />
+
+          <UpcomingProducts />
         </div>
       </section>
 
