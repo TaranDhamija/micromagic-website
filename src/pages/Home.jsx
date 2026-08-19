@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import WaIcon from '../components/WaIcon';
-import ProductCard from '../components/ProductCard';
+import ProductsGrid from '../components/ProductsGrid';
 import TrustSection from '../components/TrustSection';
 import CTASection from '../components/CTASection';
 import TestimonialCarousel from '../components/testimonials/TestimonialCarousel';
@@ -86,14 +86,25 @@ export default function Home() {
       {/* ─── FEATURED PRODUCTS ─── */}
       <section className="py-24 px-6 bg-warmwhite">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="section-label reveal justify-center before:hidden">Our Products</p>
-            <h2 className="text-[clamp(32px,4.5vw,52px)] text-forest reveal reveal-delay-1 mb-4">
-              Three plants. Endless benefits.
-            </h2>
-            <p className="font-display text-xl text-textlight reveal reveal-delay-2 max-w-[480px] mx-auto">
-              Each product is sourced honestly, packed hygienically, and delivered to your door.
-            </p>
+          <div className="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="section-label reveal">Our Products</p>
+              <h2 className="text-[clamp(34px,4.8vw,58px)] text-forest reveal reveal-delay-1 mb-5">
+                A quieter way to discover
+                <br />
+                <em className="italic text-sage">everyday botanical rituals.</em>
+              </h2>
+              <p className="font-display text-[22px] leading-relaxed text-textlight reveal reveal-delay-2">
+                This is not a catalogue. It is a curated product gallery built around mood, ritual, and ingredient honesty — so each product feels worthy of exploration.
+              </p>
+            </div>
+
+            <div className="reveal reveal-delay-3 max-w-sm rounded-[30px] border border-gold/15 bg-parchment/75 px-6 py-6 shadow-[0_12px_40px_rgba(24,42,29,0.05)]">
+              <p className="mb-3 text-[10px] font-medium uppercase tracking-[2.6px] text-sage">Designed for discovery</p>
+              <p className="font-display text-[24px] italic leading-[1.15] text-textmid">
+                Seven products. Multiple visual moments. One calm luxury rhythm.
+              </p>
+            </div>
           </div>
 
           {/* Urgency banner */}
@@ -109,15 +120,11 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {products.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
-          </div>
+          <ProductsGrid products={products} />
 
           <div className="text-center mt-10 reveal">
             <Link to="/products" className="btn-forest inline-flex text-sm px-6 py-3">
-              View Full Details →
+              Explore The Full Collection →
             </Link>
           </div>
         </div>

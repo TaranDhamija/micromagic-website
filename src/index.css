@@ -75,6 +75,10 @@
   .product-img-wheatgrass { background: linear-gradient(135deg, #c8e0cc 0%, #a3c9a8 40%, #7ab387 100%); }
   .product-img-moringa { background: linear-gradient(135deg, #b8d9bc 0%, #8fc495 40%, #5fac67 100%); }
   .product-img-bluepea { background: linear-gradient(135deg, #c5cce8 0%, #9eaadc 40%, #7289ce 100%); }
+  .product-img-ashwagandha { background: linear-gradient(135deg, #ead9cd 0%, #c8a688 42%, #7f5c49 100%); }
+  .product-img-amla { background: linear-gradient(135deg, #eef2d6 0%, #bccd77 42%, #6e8741 100%); }
+  .product-img-neem { background: linear-gradient(135deg, #dce9dc 0%, #89ac8c 42%, #456a51 100%); }
+  .product-img-hibiscus { background: linear-gradient(135deg, #f6d7dd 0%, #d78594 42%, #873d55 100%); }
 
   .hero-ambient-gradient {
     background:

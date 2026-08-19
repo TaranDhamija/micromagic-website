@@ -1,96 +1,87 @@
 import { Link } from 'react-router-dom';
-import WaIcon from './WaIcon';
-import BrandLogo from './BrandLogo';
-import { waLink } from '../data/products';
+import { motion } from 'framer-motion';
+import ProductImageSlider from './ProductImageSlider';
 
-export default function ProductCard({ product, index = 0 }) {
+const cardVariants = {
+  hidden: { opacity: 0, y: 38 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+export default function ProductCard({ product }) {
+  const cardTitle = product.cardTitle || product.name.replace(/^MicroMagic\s+/, '');
+
   return (
-    <div
-      className={`reveal reveal-delay-${index + 1} card-hover bg-white rounded-[28px] overflow-hidden border border-forest/6 shadow-[0_4px_30px_rgba(30,58,42,0.07)] flex flex-col`}
-    >
-      {/* Image Placeholder */}
-      <div className={`relative h-56 ${product.imgClass} flex items-center justify-center overflow-hidden`}>
-        {/* Mockup visual */}
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-20 h-28 bg-white/30 rounded-2xl backdrop-blur-sm border border-white/40 flex flex-col items-center justify-center gap-2 shadow-lg">
-            <BrandLogo
-              showWordmark={false}
-              markClassName="h-8 w-10"
-              className="opacity-95"
-            />
-            <span className="text-[7px] tracking-[0.08em] uppercase text-white/85 font-semibold">
-              {product.shortName}
+    <motion.article variants={cardVariants} className="group relative">
+      <Link
+        to={`/products/${product.slug}`}
+        className="product-showcase-card block overflow-hidden rounded-[34px] border border-forest/8 bg-white/88 p-4 shadow-[0_12px_45px_rgba(18,35,25,0.08)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(18,35,25,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/35"
+      >
+        <div className="relative overflow-hidden rounded-[28px]">
+          <ProductImageSlider product={product} />
+          {product.badge && (
+            <div className="absolute left-4 top-4 rounded-full border border-white/18 bg-[#122016]/26 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[2px] text-goldlight backdrop-blur-sm">
+              {product.badge}
+            </div>
+          )}
+        </div>
+
+        <div className="px-2 pb-3 pt-6">
+          <div className="mb-4 flex items-start justify-between gap-4">
+            <div>
+              <p className="mb-2 text-[10px] font-medium uppercase tracking-[2.5px] text-sage/90">
+                {product.category}
+              </p>
+              <h3 className="font-serif text-[30px] leading-[1.02] text-forest">
+                {cardTitle}
+              </h3>
+            </div>
+            <span className="mt-1 rounded-full border border-forest/10 bg-parchment/75 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[2px] text-textlight">
+              {product.weight}
             </span>
-            <div className="w-10 h-[3px] rounded-full bg-white/60" />
-            <div className="w-7 h-[2px] rounded-full bg-white/45" />
           </div>
-          <div className="text-white/70 text-[10px] font-medium tracking-[2px] uppercase">
-            {product.weight}
-          </div>
-        </div>
 
-        {/* Badge */}
-        {product.badge && (
-          <div className="absolute top-4 right-4 bg-forest text-goldlight text-[10px] font-medium tracking-wide px-3 py-1.5 rounded-full">
-            {product.badge}
-          </div>
-        )}
+          <p className="mb-5 font-display text-[24px] italic leading-[1.1] text-textmid">
+            {product.shortDescription}
+          </p>
 
-        {/* Availability dot */}
-        <div className="absolute top-4 left-4 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-          <span className="text-white/70 text-[10px] font-medium">In Stock</span>
-        </div>
-      </div>
+          {product.highlights?.length ? (
+            <div className="mb-5 flex flex-wrap gap-2">
+              {product.highlights.slice(0, 3).map((highlight) => (
+                <span
+                  key={highlight}
+                  className="rounded-full border border-forest/10 bg-parchment/72 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[1.8px] text-textlight"
+                >
+                  {highlight}
+                </span>
+              ))}
+            </div>
+          ) : null}
 
-      {/* Body */}
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl text-forest font-bold mb-1">{product.name}</h3>
-        <p className="text-[11px] text-textlight uppercase tracking-[2px] mb-4">{product.weight}</p>
+          <p className="mb-8 max-w-[30ch] text-sm leading-relaxed text-textlight">
+            {product.story}
+          </p>
 
-        <p className="font-display italic text-textmid text-base leading-relaxed mb-4">
-          "{product.tagline}"
-        </p>
-
-        <ul className="space-y-2 mb-5 flex-1">
-          {product.benefits.slice(0, 3).map((b, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-textmid leading-snug">
-              <span className="text-sage mt-0.5 text-xs flex-shrink-0">✦</span>
-              {b}
-            </li>
-          ))}
-        </ul>
-
-        {/* Usage hint */}
-        <div className="bg-sage/8 border-l-2 border-sage rounded-r-xl px-4 py-3 mb-5">
-          <p className="text-[10px] uppercase tracking-[1.5px] text-sage font-medium mb-1">Daily Ritual</p>
-          <p className="text-[13px] text-textmid leading-relaxed">{product.usage[0]}</p>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-forest/7">
-          <div>
-            <p className="font-serif text-2xl text-forest font-bold">{product.price}</p>
-          </div>
-          <div className="flex gap-2">
-            <Link
-              to={`/product/${product.id}`}
-              className="px-4 py-2 rounded-full border border-forest/20 text-forest text-xs font-medium hover:bg-forest hover:text-cream transition-all duration-200"
-            >
-              Details
-            </Link>
-            <a
-              href={waLink(product.waMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-forest text-xs"
-            >
-              <WaIcon size={13} />
-              Order
-            </a>
+          <div className="flex items-center justify-between border-t border-forest/8 pt-5">
+            <div>
+              <p className="text-[10px] uppercase tracking-[2.2px] text-[#D8D5C7]">
+                Starting from
+              </p>
+              <p className="font-serif text-[28px] text-forest">{product.price}</p>
+            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-forest/14 bg-forest px-5 py-2.5 text-[11px] font-medium uppercase tracking-[2px] text-cream transition-all duration-500 group-hover:bg-moss group-hover:pl-6 group-hover:pr-4">
+              Explore Product
+              <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            </span>
           </div>
         </div>
-      </div>
-    </div>
+      </Link>
+    </motion.article>
   );
 }

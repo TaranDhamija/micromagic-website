@@ -60,10 +60,10 @@ export default function Footer() {
             <h4 className="font-sans text-xs font-medium tracking-[2.5px] uppercase text-cream/30 mb-5">Products</h4>
             <ul className="space-y-3">
               {[
-                { to: '/product/wheatgrass', label: 'Wheatgrass Powder' },
-                { to: '/product/moringa', label: 'Moringa Powder' },
-                { to: '/product/bluepea', label: 'Blue Pea Flowers' },
-                { to: '/products', label: 'Combo Offers' },
+                { to: '/products/wheatgrass-powder', label: 'Wheatgrass Powder' },
+                { to: '/products/moringa-powder', label: 'Moringa Powder' },
+                { to: '/products/blue-pea-flowers', label: 'Blue Pea Flowers' },
+                { to: '/products', label: 'Full Collection' },
               ].map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} className="text-sm text-cream/50 hover:text-mint transition-colors">

@@ -82,7 +82,7 @@ export default function HeroSection() {
 
           <AnimatedHeadline />
 
-          <p className="mt-7 max-w-[540px] font-display text-[clamp(19px,2.4vw,25px)] leading-relaxed text-cream/62">
+          <p className="mt-7 max-w-[540px] font-display text-[clamp(19px,2.4vw,25px)] leading-relaxed text-[#D8D5C7]">
             Pure herbal powders and botanicals for a slower, steadier kind of wellness. Honest ingredients, prepared with care, designed to become part of everyday life.
           </p>
 
@@ -139,7 +139,7 @@ export default function HeroSection() {
               <p className="text-[10px] uppercase tracking-[2.2px] text-sage/80">
                 Quiet Luxury Wellness
               </p>
-              <p className="mt-4 font-display text-[28px] italic leading-[1.15] text-cream/82">
+              <p className="mt-4 font-display text-[28px] italic leading-[1.15] text-white/90">
                 Daily nourishment, not dramatic promises.
               </p>
             </div>

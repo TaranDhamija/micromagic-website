@@ -1,67 +1,267 @@
 export const WA_NUMBER = '919417027979';
 export const WA_BASE = `https://wa.me/${WA_NUMBER}`;
 
-export const waLink = (text) =>
-  `${WA_BASE}?text=${encodeURIComponent(text)}`;
+export const waLink = (text) => `${WA_BASE}?text=${encodeURIComponent(text)}`;
+
+const createProductImages = (productName, tones, sceneLabels, srcPrefix = '') =>
+  sceneLabels.map((label, index) => ({
+    id: `${productName.toLowerCase().replace(/\s+/g, '-')}-${index + 1}`,
+    alt: `${productName} ${label.toLowerCase()} view`,
+    label,
+    tones,
+    src: srcPrefix ? `${srcPrefix}${String(index + 1).padStart(4, '0')}.jpg` : undefined,
+  }));
+
+const imageSets = {
+  wheatgrass: createProductImages(
+    'Wheatgrass Powder',
+    ['#dff0df', '#a8d09c', '#5c9363'],
+    [
+      '',
+      'Serving Guide',
+      'Usage Rituals',
+      'Organic Promise',
+      'Why Science Loves Wheatgrass',
+      'Certified Quality',
+      'Natural Wellness Support',
+      'Ways To Enjoy',
+      'Why Choose MicroMagic',
+    ],
+    '/products/wheatgrass/IMG_2547_pages-to-jpg-'
+  ),
+  moringa: [
+  {
+    id: 'moringa-01',
+    src: '/products/Moringa/IM1.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-02',
+    src: '/products/Moringa/IM2.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-03',
+    src: '/products/Moringa/IM3.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-04',
+    src: '/products/Moringa/IM4.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-05',
+    src: '/products/Moringa/IM5.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-06',
+    src: '/products/Moringa/IM6.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-07',
+    src: '/products/Moringa/IM7.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-08',
+    src: '/products/Moringa/IM8.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-09',
+    src: '/products/Moringa/IM9.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  },
+  {
+    id: 'moringa-10',
+    src: '/products/Moringa/IM10.jpg',
+    alt: 'MicroMagic Moringa Powder'
+  }
+],
+  bluepea: createProductImages(
+    'Blue Pea Flowers',
+    ['#dfe4fb', '#8ea0e4', '#576fc2'],
+    ['Hero Jar', 'Evening Tea', 'Colour Shift', 'Ingredient Detail', 'Glass Pour', 'Calm Ritual', 'Shelf Portrait']
+  ),
+  ashwagandha: createProductImages(
+    'Ashwagandha Powder',
+    ['#f0e3d5', '#c9a47f', '#7e5a44'],
+    ['Hero Bottle', 'Night Ritual', 'Ingredient Detail', 'Stone Tray', 'Calm Blend', 'Soft Studio', 'Daily Dose']
+  ),
+  amla: createProductImages(
+    'Amla Powder',
+    ['#edf0d6', '#b6c86c', '#6c8741'],
+    ['Hero Bottle', 'Morning Mix', 'Ingredient Detail', 'Citrus Pairing', 'Minimal Shelf', 'Daily Scoop', 'Botanical Frame']
+  ),
+  neem: createProductImages(
+    'Neem Powder',
+    ['#d8e6da', '#7ea685', '#3f674a'],
+    ['Hero Bottle', 'Clean Ritual', 'Ingredient Detail', 'Studio Closeup', 'Leaf Pairing', 'Daily Measure', 'Shelf Portrait']
+  ),
+  hibiscus: createProductImages(
+    'Hibiscus Flowers',
+    ['#f5dadd', '#d67a8b', '#873d53'],
+    ['Hero Jar', 'Tea Ritual', 'Ingredient Detail', 'Crimson Pour', 'Glass Bloom', 'Evening Shelf', 'Petal Closeup']
+  ),
+};
 
 export const products = [
   {
     id: 'wheatgrass',
-    name: 'Wheatgrass Powder',
+    slug: 'wheatgrass-powder',
+    name: 'MicroMagic Wheatgrass Powder',
     shortName: 'Wheatgrass',
+    category: 'Daily Wellness Superfood',
     weight: '100g',
     price: '₹450–₹500',
     priceMin: 450,
-    imgClass: 'product-img-wheatgrass',
     badge: 'Best Seller',
-    tagline: 'Feel lighter, more energized, every single morning.',
+    imgClass: 'product-img-wheatgrass',
+    shortDescription: 'Daily green nourishment for modern living.',
+    tagline: 'A simple daily ritual built around clean nutrition and natural vitality.',
+    story:
+      'A bright, clean morning ritual for people who want nourishment without noise. One teaspoon, a glass of water, and a calmer start to the day.',
     description:
-      'Wheatgrass is one of the most nutrient-dense plants on the planet — and ours is grown without chemicals, dried at low temperatures to preserve potency, and packed without any additives. One teaspoon in your morning water is all it takes.',
+      'Wheatgrass is one of the most nutrient-dense plants on the planet — and ours is grown without chemicals, dried gently to preserve its character, and packed without additives. It is designed for modern routines that need something simple, steady, and honest.',
     benefits: [
-      'Supports a calmer, more settled digestive system',
-      'Sustained morning energy without coffee dependency',
-      'Rich in vitamins A, C, E, iron, and natural antioxidants',
-      'Helps your body feel lighter and less heavy after meals',
+      'Natural daily detox support',
+      'Clean sustained energy for busy routines',
+      'Digestive support for lighter mornings',
+      'Skin glow support through nutrient-rich greens',
+      'Daily wellness support without complicated routines',
     ],
     usage: [
-      'Start with ½ tsp in a glass of water or fresh juice',
-      'Best taken on an empty stomach in the morning',
-      'Gradually increase to 1 tsp daily as your body adjusts',
-      'Can also be blended into smoothies',
+      '1 tsp with warm water as a simple morning ritual',
+      'Add 1/2 to 1 tsp to smoothies or fresh juices',
+      'Mix 1/2 tsp into lemon water for a lighter flavour',
+      'Try a small pinch in buttermilk for a savoury option',
     ],
     faqs: [
       {
         q: 'Does it taste strong or earthy?',
-        a: 'It has a mild, grassy taste — most people mix it with juice or a smoothie. Over time, many customers drink it plain with water.',
+        a: 'It has a mild grassy taste. Many customers start by mixing it with juice or a smoothie, then move to plain water over time.',
       },
       {
         q: 'How soon will I notice a difference?',
-        a: 'Many customers notice improved digestion and morning energy within 7–14 days of consistent daily use.',
-      },
-      {
-        q: 'Is this safe for children?',
-        a: 'We recommend consulting your family doctor before giving it to children under 12.',
+        a: 'Many customers mention improved digestion and a lighter morning feeling within 1 to 2 weeks of consistent use.',
       },
       {
         q: 'Does it contain any additives or preservatives?',
-        a: 'No. 100% pure dried wheatgrass, nothing else.',
+        a: 'No. It is 100% pure dried wheatgrass, nothing else.',
       },
     ],
-    waMessage: "Hi MicroMagic! I'd like to order Wheatgrass Powder (100g). Please share the details.",
-    color: 'from-[#c8e0cc] to-[#7ab387]',
+    images: imageSets.wheatgrass,
+    highlights: ['100% Organic', 'Nutrient Rich', 'Easy to Digest'],
+    servings: 'Approx. 30 Servings',
+    ingredient: '100% Organic Wheatgrass',
+    orderMessage: "Hi, I'm interested in MicroMagic Wheatgrass Powder. Please share details.",
+    quickFacts: [
+      '100% Organic',
+      '100g Pack',
+      'Approx. 30 Servings',
+      'Whole Leaf Wheatgrass',
+      'No Artificial Colours',
+      'No Added Preservatives',
+    ],
+    whyPeopleChoose: [
+      {
+        title: 'Chlorophyll',
+        body: 'Natural cleansing support',
+      },
+      {
+        title: 'Vitamins',
+        body: 'Contains Vitamins A, C & E',
+      },
+      {
+        title: 'Minerals',
+        body: 'Iron & Magnesium',
+      },
+      {
+        title: 'Nutritional Building Blocks',
+        body: 'Enzymes & Amino Acids',
+      },
+    ],
+    dailyBenefits: [
+      'Natural Daily Detox',
+      'Clean Sustained Energy',
+      'Digestive Support',
+      'Skin Glow Support',
+      'Daily Wellness Support',
+    ],
+    howToUseCards: [
+      {
+        title: 'Morning Ritual',
+        body: '1 tsp with warm water',
+      },
+      {
+        title: 'Smoothies & Juices',
+        body: 'Add 1/2–1 tsp',
+      },
+      {
+        title: 'Lemon Water Mix',
+        body: '1/2 tsp with lemon water',
+      },
+      {
+        title: 'Buttermilk Mix',
+        body: 'Small pinch with buttermilk',
+      },
+    ],
+    specifications: [
+      ['Ingredient', 'Organic Wheatgrass'],
+      ['Weight', '100g'],
+      ['Servings', 'Approx. 30'],
+      ['Processing', 'Hygienically Processed'],
+      ['Preservatives', 'None Added'],
+      ['Artificial Colours', 'None'],
+      ['Storage', 'Store in a cool, dry place'],
+    ],
+    certifications: [
+      'India Organic NPOP Certified',
+      'Jaivik Bharat Certified',
+      'FSSAI Certified',
+      'MSME Registered',
+      'Chemical Free',
+    ],
+    whyChooseMicroMagic: [
+      'Certified Organic',
+      'No Pesticides',
+      'Non-GMO',
+      'Vegan',
+      'Gluten Free',
+      'Locally Sourced',
+    ],
+    beyondDailyUse: [
+      {
+        title: 'Face Pack',
+        body: 'Wheatgrass + Aloe Vera Gel',
+      },
+      {
+        title: 'Hair & Scalp Rinse',
+        body: 'Mild Wheatgrass Water',
+      },
+    ],
+    waMessage: "Hi, I'm interested in MicroMagic Wheatgrass Powder. Please share details.",
   },
   {
     id: 'moringa',
+    slug: 'moringa-powder',
     name: 'Moringa Powder',
     shortName: 'Moringa',
-    weight: '200g',
+    category: 'Kitchen Wellness',
+    weight: '200G',
     price: '₹350–₹450',
     priceMin: 350,
-    imgClass: 'product-img-moringa',
     badge: 'Best Value',
-    tagline: 'The most versatile daily nutrition habit you\'ll ever build.',
+    imgClass: 'product-img-moringa',
+    shortDescription: 'The quiet nutritional staple your kitchen will keep reaching for.',
+    tagline: "The most versatile daily nutrition habit you'll ever build.",
+    story:
+      'Made for the home cook and the busy household alike. Moringa slips into water, dough, dal, and smoothies without turning wellness into a performance.',
     description:
-      'Moringa is known as the "tree of life" across many traditional wellness systems — and for good reason. The leaves are loaded with naturally occurring nutrients and can be seamlessly added to everything from morning water to roti dough without dramatically changing the taste.',
+      'Known as the tree of life across many traditional wellness systems, moringa offers naturally occurring nutrients in a form that feels easy to use every day. It fits beautifully into Indian kitchens and daily cooking without demanding a separate routine.',
     benefits: [
       'Exceptional natural nutrient density in every teaspoon',
       'Steady, non-jittery energy throughout the day',
@@ -77,36 +277,37 @@ export const products = [
     faqs: [
       {
         q: 'Does the taste change my food?',
-        a: 'Moringa has a mild, earthy flavour that blends naturally into most Indian cooking. In roti dough, it\'s barely noticeable.',
-      },
-      {
-        q: 'Can pregnant women consume this?',
-        a: 'We recommend consulting your doctor during pregnancy before starting any new supplement.',
+        a: 'Moringa has a mild earthy flavour that blends naturally into most Indian cooking. In dough and dal, it stays very subtle.',
       },
       {
         q: 'How long does one pack last?',
-        a: 'At 1 tsp per day, the 200g pack lasts approximately 2 months.',
+        a: 'At 1 tsp per day, the 200G pack usually lasts around 2 months.',
       },
       {
-        q: 'Is the powder artificially dried or processed?',
-        a: 'No. We use a low-heat drying process that preserves the nutritional profile of the leaves.',
+        q: 'Is the powder heavily processed?',
+        a: 'No. It is gently dried and milled to preserve the natural profile of the leaves.',
       },
     ],
-    waMessage: "Hi MicroMagic! I'd like to order Moringa Powder (200g). Please share the details.",
-    color: 'from-[#b8d9bc] to-[#5fac67]',
+    images: imageSets.moringa,
+    waMessage: "Hi MicroMagic! I'd like to order Moringa Powder (200G). Please share the details.",
   },
   {
     id: 'bluepea',
+    slug: 'blue-pea-flowers',
     name: 'Blue Pea Flowers',
     shortName: 'Blue Pea',
-    weight: '50g',
+    category: 'Botanical Tea',
+    weight: '50G',
     price: '₹500',
     priceMin: 500,
-    imgClass: 'product-img-bluepea',
     badge: 'Most Unique',
+    imgClass: 'product-img-bluepea',
+    shortDescription: 'A calm evening ritual with natural theatre in every cup.',
     tagline: 'A calming evening ritual that also happens to look stunning.',
+    story:
+      'Whole dried blooms that turn hot water into a vivid indigo tea. Add lemon and watch it shift to violet, creating a ritual that feels both grounded and quietly magical.',
     description:
-      'Butterfly Blue Pea Flowers are whole, dried blooms — no processing, no powder, no additives. Steep them in hot water and you get a deep indigo blue tea that turns violet with the squeeze of a lemon. Beyond the visual magic, the flowers are rich in antioxidant compounds and have been used in traditional wellness practices for centuries.',
+      'Butterfly blue pea flowers are whole, dried blooms with no processing, no powder, and no additives. Beyond the colour-changing experience, they offer a naturally caffeine-free way to slow down in the evening.',
     benefits: [
       'Rich in natural anthocyanin antioxidants',
       'Supports skin hydration and a calm, settled appearance',
@@ -114,31 +315,211 @@ export const products = [
       'Supports gentle, natural digestive ease',
     ],
     usage: [
-      'Add 4–5 whole flowers to a cup of hot water',
-      'Steep for 3–5 minutes — the water turns deep blue',
-      'Add a squeeze of lemon to watch it shift to violet',
+      'Add 4 to 5 whole flowers to a cup of hot water',
+      'Steep for 3 to 5 minutes until the water turns deep blue',
+      'Add lemon to watch it shift from blue to violet',
       'Enjoy plain, with honey, or over ice',
     ],
     faqs: [
       {
         q: 'Is it safe to drink daily?',
-        a: '1–2 cups a day is perfectly fine for most people. It\'s naturally caffeine-free, making it ideal as an evening tea.',
+        a: 'For most people, 1 to 2 cups a day is perfectly fine. It is naturally caffeine-free and suits evening use well.',
       },
       {
-        q: 'Does the colour change actually happen?',
-        a: 'Yes — it\'s due to a natural pH reaction with the anthocyanins in the petals. Lemon (acidic) turns it from blue to purple.',
+        q: 'Does the colour change really happen?',
+        a: 'Yes. It is a natural pH reaction with the anthocyanins in the petals, especially when lemon is added.',
       },
       {
-        q: 'Can children drink it?',
-        a: 'It\'s generally safe, but we recommend keeping it to 1 cup for children and consulting your doctor if unsure.',
-      },
-      {
-        q: 'How long does 50g last?',
-        a: 'With 4–5 flowers per cup and 1 cup per day, 50g (approximately 200–250 flowers) lasts around 40–50 days.',
+        q: 'How long does 50G last?',
+        a: 'With 1 cup a day using 4 to 5 flowers, 50G usually lasts around 40 to 50 days.',
       },
     ],
-    waMessage: "Hi MicroMagic! I'd like to order Butterfly Blue Pea Flowers (50g). Please share the details.",
-    color: 'from-[#c5cce8] to-[#7289ce]',
+    images: imageSets.bluepea,
+    waMessage: "Hi MicroMagic! I'd like to order Blue Pea Flowers (50G). Please share the details.",
+  },
+  {
+    id: 'ashwagandha',
+    slug: 'ashwagandha-powder',
+    name: 'Ashwagandha Powder',
+    shortName: 'Ashwagandha',
+    category: 'Evening Reset',
+    weight: '150G',
+    price: '₹480',
+    priceMin: 480,
+    badge: 'Night Ritual',
+    imgClass: 'product-img-ashwagandha',
+    shortDescription: 'A grounded evening ritual for slowing down with intention.',
+    tagline: 'Comforting, earthy nourishment for your quietest hours.',
+    story:
+      'Created for evenings that need a gentler rhythm. Stir it into warm milk or a simple tonic and let your day taper off without drama.',
+    description:
+      'Ashwagandha has long been used in traditional wellness practices as part of restorative evening routines. Our powder is kept simple and unblended so it can become a dependable, soothing ritual at the end of the day.',
+    benefits: [
+      'Supports a calmer, more restorative evening rhythm',
+      'Pairs beautifully with warm milk or plant-based drinks',
+      'Offers an earthy, grounding ritual before bed',
+      'Designed for consistent nightly use in small amounts',
+    ],
+    usage: [
+      'Blend 1/2 tsp into warm milk or a plant-based drink',
+      'Take in the evening after dinner or before bed',
+      'Sweeten with honey if preferred',
+      'Start small and build consistency before increasing quantity',
+    ],
+    faqs: [
+      {
+        q: 'When should I take ashwagandha?',
+        a: 'Most people prefer it in the evening, especially as part of a calming night routine.',
+      },
+      {
+        q: 'Can I mix it with water?',
+        a: 'Yes, but many customers prefer warm milk or a creamy plant-based drink for a softer flavour.',
+      },
+      {
+        q: 'Is this a blend?',
+        a: 'No. It is a single-ingredient ashwagandha powder with no additives.',
+      },
+    ],
+    images: imageSets.ashwagandha,
+    waMessage: "Hi MicroMagic! I'd like to order Ashwagandha Powder (150G). Please share the details.",
+  },
+  {
+    id: 'amla',
+    slug: 'amla-powder',
+    name: 'Amla Powder',
+    shortName: 'Amla',
+    category: 'Daily Vitamin Ritual',
+    weight: '180G',
+    price: '₹390',
+    priceMin: 390,
+    badge: 'Daily Essential',
+    imgClass: 'product-img-amla',
+    shortDescription: 'Bright, tart nourishment that fits naturally into daily life.',
+    tagline: 'A sharper, brighter ritual for everyday resilience.',
+    story:
+      'Amla brings a fresh, tangy energy to the ritual shelf. It feels lively, clean, and easy to pair with water, honey, or fruit-forward blends.',
+    description:
+      'Amla has been valued for generations in Indian households for its naturally vibrant profile. Ours is gently processed and packed without extras, making it a simple way to add a tart botanical note to your routine.',
+    benefits: [
+      'Naturally rich in vitamin C and antioxidant compounds',
+      'Adds brightness to daily wellness routines',
+      'Pairs well with honey, juice, or warm water',
+      'Designed for steady, consistent use',
+    ],
+    usage: [
+      'Mix 1/2 tsp with water and honey in the morning',
+      'Can be stirred into fresh juice or smoothies',
+      'Use smaller quantities to begin if the tartness feels strong',
+      'Take consistently for best results',
+    ],
+    faqs: [
+      {
+        q: 'Is the flavour sour?',
+        a: 'Yes, amla is naturally tart. Many customers soften it with honey or fruit juice.',
+      },
+      {
+        q: 'Can I take it daily?',
+        a: 'Yes, small daily use is the most common approach.',
+      },
+      {
+        q: 'Is anything added to the powder?',
+        a: 'No. It is a pure single-ingredient product.',
+      },
+    ],
+    images: imageSets.amla,
+    waMessage: "Hi MicroMagic! I'd like to order Amla Powder (180G). Please share the details.",
+  },
+  {
+    id: 'neem',
+    slug: 'neem-powder',
+    name: 'Neem Powder',
+    shortName: 'Neem',
+    category: 'Purity Ritual',
+    weight: '150G',
+    price: '₹360',
+    priceMin: 360,
+    badge: 'Clean Living',
+    imgClass: 'product-img-neem',
+    shortDescription: 'A deep green ritual for people drawn to cleaner, simpler habits.',
+    tagline: 'Strong, honest, and rooted in traditional plant wisdom.',
+    story:
+      'Neem is for the customer who prefers directness over softness. Its place in the collection is about purity, discipline, and a return to uncomplicated routines.',
+    description:
+      'Known for its distinctly bitter profile and long traditional use, neem offers a more intense botanical ritual for those who appreciate stronger-tasting wellness practices. It is best approached in small amounts and with consistency.',
+    benefits: [
+      'Supports a clean, pared-back wellness routine',
+      'Ideal for customers who prefer stronger botanical profiles',
+      'Works well in small daily amounts',
+      'Single-ingredient simplicity with no fillers',
+    ],
+    usage: [
+      'Begin with 1/4 tsp in water or honey',
+      'Use in the morning for a cleaner ritual flow',
+      'Keep servings small because the taste is naturally bitter',
+      'Build gradually only if it suits your routine',
+    ],
+    faqs: [
+      {
+        q: 'Is neem bitter?',
+        a: 'Yes. Neem is naturally strong and bitter, which is why small amounts are the best place to begin.',
+      },
+      {
+        q: 'Can I mix it with honey?',
+        a: 'Yes, honey is a common way to soften the flavour.',
+      },
+      {
+        q: 'Who usually chooses neem?',
+        a: 'Customers who prefer stronger, more traditional herbal routines often reach for it.',
+      },
+    ],
+    images: imageSets.neem,
+    waMessage: "Hi MicroMagic! I'd like to order Neem Powder (150G). Please share the details.",
+  },
+  {
+    id: 'hibiscus',
+    slug: 'hibiscus-flowers',
+    name: 'Hibiscus Flowers',
+    shortName: 'Hibiscus',
+    category: 'Botanical Infusion',
+    weight: '60G',
+    price: '₹520',
+    priceMin: 520,
+    badge: 'Tea Ritual',
+    imgClass: 'product-img-hibiscus',
+    shortDescription: 'A vivid floral infusion for slower afternoons and softer evenings.',
+    tagline: 'Crimson, tart, and quietly indulgent.',
+    story:
+      'Whole dried petals for a tea that feels both sensorial and pared back. Hibiscus brings colour, brightness, and a more floral rhythm to the range.',
+    description:
+      'Hibiscus flowers steep into a tart crimson infusion that feels equally suited to slow afternoons and elevated evening rituals. Like the rest of the collection, it stays simple: whole botanicals, no extras.',
+    benefits: [
+      'Creates a vivid naturally floral tea ritual',
+      'Can be enjoyed hot or over ice',
+      'Adds variety to evening and afternoon routines',
+      'Whole flowers offer a more tactile botanical experience',
+    ],
+    usage: [
+      'Steep 1 tsp of dried petals in hot water for 4 to 5 minutes',
+      'Add honey if you want to soften the tart edge',
+      'Serve chilled for a brighter daytime ritual',
+      'Pairs beautifully with citrus',
+    ],
+    faqs: [
+      {
+        q: 'Is hibiscus caffeine-free?',
+        a: 'Yes. It is naturally caffeine-free and easy to enjoy later in the day.',
+      },
+      {
+        q: 'What does it taste like?',
+        a: 'It is floral and pleasantly tart, especially when served without sweetener.',
+      },
+      {
+        q: 'Can it be served cold?',
+        a: 'Absolutely. It works very well over ice and with citrus.',
+      },
+    ],
+    images: imageSets.hibiscus,
+    waMessage: "Hi MicroMagic! I'd like to order Hibiscus Flowers (60G). Please share the details.",
   },
 ];
 
@@ -148,7 +529,7 @@ export const combos = [
     name: 'The Complete Wellness Kit',
     label: 'Most Popular',
     featured: true,
-    products: ['Wheatgrass Powder (100g)', 'Moringa Powder (200g)', 'Blue Pea Flowers (50g)'],
+    products: ['Wheatgrass Powder (100G)', 'Moringa Powder (200G)', 'Blue Pea Flowers (50G)'],
     price: '₹999',
     savings: 'Save ₹250+',
     description: 'The full MicroMagic experience. Morning energy, daily nutrition, and a calming evening ritual — all in one box.',
@@ -159,7 +540,7 @@ export const combos = [
     name: 'The Daily Essentials Duo',
     label: 'Great Start',
     featured: false,
-    products: ['Wheatgrass Powder (100g)', 'Moringa Powder (200g)'],
+    products: ['Wheatgrass Powder (100G)', 'Moringa Powder (200G)'],
     price: '₹699',
     savings: 'Save ₹100+',
     description: 'The two most versatile products for a complete daily nutrition routine — wheatgrass in the morning, moringa in your meals.',
@@ -184,7 +565,7 @@ export const testimonials = [
     product: 'Moringa',
     duration: 'Family purchase',
     rating: 5,
-    text: 'We started mixing moringa into our roti dough — the whole family eats it and no one can tell. It\'s become part of our daily cooking without any fuss. That simplicity is what I love most.',
+    text: "We started mixing moringa into our roti dough — the whole family eats it and no one can tell. It's become part of our daily cooking without any fuss. That simplicity is what I love most.",
     initial: 'R',
     avatarColor: 'from-earth to-[#c49a5a]',
   },
@@ -194,7 +575,7 @@ export const testimonials = [
     product: 'Blue Pea Flowers',
     duration: 'Repeat customer',
     rating: 5,
-    text: 'The blue pea flower tea is my evening ritual now. Watching the colour shift when I add lemon never gets old — my kids think it\'s magic. I feel genuinely calmer before bed.',
+    text: "The blue pea flower tea is my evening ritual now. Watching the colour shift when I add lemon never gets old — my kids think it's magic. I feel genuinely calmer before bed.",
     initial: 'A',
     avatarColor: 'from-moss to-sage',
   },
@@ -204,7 +585,7 @@ export const testimonials = [
     product: 'Complete Kit',
     duration: '2 months',
     rating: 5,
-    text: 'Ordered the complete combo as a gift for my mother and she absolutely loves it. What sold me was that MicroMagic doesn\'t make exaggerated claims — they\'re honest about what the products do and don\'t do.',
+    text: "Ordered the complete combo as a gift for my mother and she absolutely loves it. What sold me was that MicroMagic doesn't make exaggerated claims — they're honest about what the products do and don't do.",
     initial: 'H',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },
@@ -284,7 +665,7 @@ export const testimonials = [
     product: 'Wheatgrass',
     duration: 'Daily routine',
     rating: 5,
-    text: 'I bought it after a friend recommended it and was mostly curious. Two months later, it is one of those rare wellness purchases that didn\'t get pushed to the back of the shelf.',
+    text: "I bought it after a friend recommended it and was mostly curious. Two months later, it is one of those rare wellness purchases that didn't get pushed to the back of the shelf.",
     initial: 'V',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },
@@ -324,7 +705,7 @@ export const testimonials = [
     product: 'Wheatgrass',
     duration: 'Post-yoga habit',
     rating: 5,
-    text: 'After yoga I usually want something light and uncomplicated. Wheatgrass fits that mood perfectly. It hasn\'t transformed my life overnight, but it has helped me build a routine I genuinely enjoy.',
+    text: "After yoga I usually want something light and uncomplicated. Wheatgrass fits that mood perfectly. It hasn't transformed my life overnight, but it has helped me build a routine I genuinely enjoy.",
     initial: 'P',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },

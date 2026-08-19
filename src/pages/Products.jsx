@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import ProductCard from '../components/ProductCard';
+import ProductsGrid from '../components/ProductsGrid';
 import CTASection from '../components/CTASection';
 import WaIcon from '../components/WaIcon';
 import { usePageReveal } from '../hooks/useReveal';
@@ -8,31 +8,46 @@ import { products, combos, waLink } from '../data/products';
 export default function Products() {
   usePageReveal();
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
-      {/* Header */}
-      <div className="bg-forest pt-32 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_80%_50%,rgba(46,90,61,0.5),transparent)] pointer-events-none" />
-        <div className="max-w-2xl mx-auto text-center relative z-10">
-          <p className="section-label justify-center before:bg-goldlight text-goldlight mb-4">Our Range</p>
-          <h1 className="font-serif text-5xl text-cream font-bold mb-5">Three plants. One honest brand.</h1>
-          <p className="font-display text-xl text-cream/60 leading-relaxed">
-            No fillers. No exaggerations. Just clean herbal nutrition in its simplest, most honest form.
-          </p>
+      <div className="bg-forest pt-32 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_80%_40%,rgba(46,90,61,0.52),transparent_72%)] pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-[34%] bg-[radial-gradient(ellipse_at_left_center,rgba(232,201,122,0.08),transparent_68%)] pointer-events-none" />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <p className="section-label text-goldlight before:bg-goldlight mb-5">Collection</p>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_340px] lg:items-end">
+            <div>
+              <h1 className="font-serif text-[clamp(42px,6vw,76px)] leading-[0.98] text-cream mb-6">
+                A premium botanical collection
+                <br />
+                <em className="italic text-goldlight">designed for exploration.</em>
+              </h1>
+              <p className="font-display text-[22px] text-cream/62 leading-relaxed max-w-[720px]">
+                Each product is presented like an editorial object rather than a catalogue item — with its own story, rhythm, and gallery of quiet visual moments.
+              </p>
+            </div>
+            <div className="rounded-[32px] border border-cream/10 bg-cream/5 p-7 backdrop-blur-md">
+              <p className="text-[10px] uppercase tracking-[2.6px] text-goldlight/75 mb-3">Product Discovery</p>
+              <p className="font-display text-[28px] italic leading-[1.08] text-cream/82">
+                Browse by mood, ritual, and ingredient character — not just by price.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Urgency Bar */}
       <div className="bg-gold/15 border-b border-gold/20 px-6 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2.5 text-sm text-forest">
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
-            <strong>Fresh small batch</strong> — limited stock available right now
+            <strong>Fresh small batch</strong> — every product is packed in limited runs for better freshness
           </div>
           <a
-            href={waLink("Hi MicroMagic! What products are currently in stock?")}
+            href={waLink('Hi MicroMagic! What products are currently in stock?')}
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-medium text-sage hover:text-forest transition-colors flex items-center gap-1.5"
@@ -42,23 +57,31 @@ export default function Products() {
         </div>
       </div>
 
-      {/* Products Grid */}
-      <section className="py-20 px-6 bg-warmwhite">
+      <section className="py-24 px-6 bg-warmwhite">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {products.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
+          <div className="mb-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="section-label reveal">Discover</p>
+              <h2 className="text-[clamp(34px,4.6vw,58px)] text-forest reveal reveal-delay-1 mb-4">
+                Seven products,
+                <br />
+                <em className="italic text-sage">each with its own visual story.</em>
+              </h2>
+            </div>
+            <p className="max-w-xl font-display text-[21px] leading-relaxed text-textlight reveal reveal-delay-2">
+              Every card below supports a multi-image gallery from the start, so the experience can grow naturally when final product photography is added.
+            </p>
           </div>
+
+          <ProductsGrid products={products} />
         </div>
       </section>
 
-      {/* Not sure section */}
       <section className="py-16 px-6 bg-parchment border-y border-forest/8">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="font-serif text-3xl text-forest mb-3">Not sure where to start?</h2>
+          <h2 className="font-serif text-3xl text-forest mb-3">Not sure where to begin?</h2>
           <p className="font-display text-xl text-textlight mb-7 leading-relaxed">
-            Tell us about your daily routine and health goals — we'll suggest the best product or combo for you. No upselling, just honest guidance.
+            Share your routine, your goals, or what feels off right now. We&apos;ll help you choose the most natural starting point without upselling.
           </p>
           <a
             href={waLink("Hi MicroMagic! I'm not sure which product is best for my situation. Can you help me choose?")}
@@ -72,19 +95,18 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Combo Section */}
       <section className="py-24 px-6 bg-forest relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_50%,rgba(46,90,61,0.5),transparent_70%)] pointer-events-none" />
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center mb-14">
-            <p className="section-label justify-center text-goldlight">Bundle Offers</p>
-            <h2 className="font-serif text-4xl text-cream mb-3">Better together. Better price.</h2>
+            <p className="section-label justify-center before:bg-goldlight text-goldlight">Bundle Offers</p>
+            <h2 className="font-serif text-4xl text-cream mb-3">Better together. Better value.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {combos.map((combo, i) => (
               <div
                 key={combo.id}
-                className={`relative rounded-[28px] p-10 hover:-translate-y-2 hover:shadow-[0_24px_80px_rgba(0,0,0,0.28)] transition-all duration-400 reveal reveal-delay-${i+1} ${
+                className={`relative rounded-[28px] p-10 hover:-translate-y-2 hover:shadow-[0_24px_80px_rgba(0,0,0,0.28)] transition-all duration-400 reveal reveal-delay-${i + 1} ${
                   combo.featured ? 'bg-gold border border-goldlight' : 'bg-cream/5 border border-cream/10'
                 }`}
               >
@@ -120,8 +142,8 @@ export default function Products() {
       </section>
 
       <CTASection
-        heading="Ready to start?"
-        sub="Order via WhatsApp in 30 seconds. We'll take care of the rest."
+        heading="Ready to explore your ritual?"
+        sub="Every product page goes deeper on ingredients, benefits, and how it fits into your routine."
       />
     </div>
   );
