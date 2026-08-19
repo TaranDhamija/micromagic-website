@@ -8,7 +8,7 @@ export default function ProductImageSlider({
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStart, setTouchStart] = useState(null);
 
   // Automatically move through product images
   useEffect(() => {
@@ -49,33 +49,49 @@ export default function ProductImageSlider({
 
   return (
     <div
-      className={`group/product-slider relative overflow-hidden rounded-[30px] ${aspectClassName}`}
+      className={`group/product-slider relative overflow-hidden rounded-[30px] touch-pan-y ${aspectClassName}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
       onTouchStart={(event) => {
-        setTouchStartX(
-          event.changedTouches[0]?.clientX ?? null
+        const touch = event.changedTouches[0];
+
+        setTouchStart(
+          touch
+            ? {
+                x: touch.clientX,
+                y: touch.clientY,
+              }
+            : null
         );
       }}
       onTouchEnd={(event) => {
-        if (touchStartX === null) return;
+        if (!touchStart) return;
 
-        const currentX =
-          event.changedTouches[0]?.clientX ?? 0;
+        const touch = event.changedTouches[0];
 
-        const delta = currentX - touchStartX;
+        if (!touch) {
+          setTouchStart(null);
+          return;
+        }
 
-        if (delta > 48) {
+        const deltaX = touch.clientX - touchStart.x;
+        const deltaY = touch.clientY - touchStart.y;
+
+        const isHorizontalSwipe =
+          Math.abs(deltaX) > 48 &&
+          Math.abs(deltaX) > Math.abs(deltaY) + 12;
+
+        if (isHorizontalSwipe && deltaX > 0) {
           paginate(-1);
         }
 
-        if (delta < -48) {
+        if (isHorizontalSwipe && deltaX < 0) {
           paginate(1);
         }
 
-        setTouchStartX(null);
+        setTouchStart(null);
       }}
     >
       {/* Fallback background when there is no real image */}

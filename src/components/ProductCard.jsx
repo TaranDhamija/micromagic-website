@@ -18,10 +18,10 @@ export default function ProductCard({ product }) {
   const cardTitle = product.cardTitle || product.name.replace(/^MicroMagic\s+/, '');
 
   return (
-    <motion.article variants={cardVariants} className="group relative">
+    <motion.article variants={cardVariants} className="group relative min-w-0">
       <Link
         to={`/products/${product.slug}`}
-        className="product-showcase-card block overflow-hidden rounded-[34px] border border-forest/8 bg-white/88 p-4 shadow-[0_12px_45px_rgba(18,35,25,0.08)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(18,35,25,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/35"
+        className="product-showcase-card block min-w-0 overflow-hidden rounded-[34px] border border-forest/8 bg-white/88 p-4 shadow-[0_12px_45px_rgba(18,35,25,0.08)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(18,35,25,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage/35"
       >
         <div className="relative overflow-hidden rounded-[28px]">
           <ProductImageSlider product={product} />

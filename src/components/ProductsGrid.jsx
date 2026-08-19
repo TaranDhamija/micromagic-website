@@ -14,7 +14,7 @@ const containerVariants = {
 export default function ProductsGrid({ products, compact = false }) {
   return (
     <motion.div
-      className={`grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3 ${
+      className={`grid min-w-0 grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3 ${
         compact ? 'max-w-5xl mx-auto' : ''
       }`}
       variants={containerVariants}
