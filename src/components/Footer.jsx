@@ -16,18 +16,18 @@ export default function Footer() {
               lightWordmark
               className="items-center mb-4"
             />
-            <p className="font-display italic text-cream/45 text-base leading-relaxed mb-6">
+            <p className="font-display italic text-white text-base leading-relaxed mb-6">
               Pure Herbal Solution for Modern Living.
               <br />Honest plants. Simple habits. Real nourishment.
             </p>
             <div className="space-y-2.5">
-              <a href="tel:+919417027979" className="flex items-center gap-3 text-sm text-cream/50 hover:text-mint transition-colors">
+              <a href="tel:+919417027979" className="flex items-center gap-3 text-sm text-white hover:text-mint transition-colors">
                 <span className="text-base">📞</span> +91 94170 27979
               </a>
-              <a href="mailto:micromagic.ceo@gmail.com" className="flex items-center gap-3 text-sm text-cream/50 hover:text-mint transition-colors">
+              <a href="mailto:micromagic.ceo@gmail.com" className="flex items-center gap-3 text-sm text-white hover:text-mint transition-colors">
                 <span className="text-base">✉️</span> micromagic.ceo@gmail.com
               </a>
-              <p className="flex items-center gap-3 text-sm text-cream/40">
+              <p className="flex items-center gap-3 text-sm text-white">
                 <span className="text-base">📍</span> Jalandhar, Punjab, India
               </p>
             </div>
@@ -36,19 +36,19 @@ export default function Footer() {
                 href={waLink("Hi MicroMagic! I'd like to know more about your products.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-white hover:text-mint hover:border-mint/40 transition-colors"
               >
                 WhatsApp
               </a>
               <a
                 href="mailto:micromagic.ceo@gmail.com"
-                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-white hover:text-mint hover:border-mint/40 transition-colors"
               >
                 Email
               </a>
               <a
                 href="tel:+919417027979"
-                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-cream/55 hover:text-mint hover:border-mint/40 transition-colors"
+                className="text-xs px-3 py-1.5 rounded-full border border-cream/20 text-white hover:text-mint hover:border-mint/40 transition-colors"
               >
                 Call
               </a>
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="font-sans text-xs font-medium tracking-[2.5px] uppercase text-cream/30 mb-5">Products</h4>
+            <h4 className="font-sans text-xs font-medium tracking-[2.5px] uppercase text-white mb-5">Products</h4>
             <ul className="space-y-3">
               {[
                 { to: '/products/wheatgrass-powder-pouch', label: 'Wheatgrass Powder — Pouch' },
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-sans text-xs font-medium tracking-[2.5px] uppercase text-cream/30 mb-5">Navigate</h4>
+            <h4 className="font-sans text-xs font-medium tracking-[2.5px] uppercase text-white mb-5">Navigate</h4>
             <ul className="space-y-3">
               {[
                 { to: '/', label: 'Home' },

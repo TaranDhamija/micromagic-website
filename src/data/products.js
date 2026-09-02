@@ -1,66 +1,82 @@
 export const WA_NUMBER = '919417027979';
 export const WA_BASE = `https://wa.me/${WA_NUMBER}`;
 
-export const waLink = (text) => `${WA_BASE}?text=${encodeURIComponent(text)}`;
+export const waLink = (text) =>
+  `${WA_BASE}?text=${encodeURIComponent(text)}`;
 
-const createProductImages = (productName, tones, sceneLabels, srcPrefix = '') =>
+const createProductImages = (
+  productName,
+  tones,
+  sceneLabels,
+  srcPrefix = ''
+) =>
   sceneLabels.map((label, index) => ({
     id: `${productName.toLowerCase().replace(/\s+/g, '-')}-${index + 1}`,
     alt: `${productName} ${label.toLowerCase()} view`,
     label,
     tones,
-    src: srcPrefix ? `${srcPrefix}${String(index + 1).padStart(4, '0')}.jpg` : undefined,
+    src: srcPrefix
+      ? `${srcPrefix}${String(index + 1).padStart(4, '0')}.jpg`
+      : undefined,
   }));
 
 export const products = [
   {
-  id: 'wheatgrass-pouch',
-  slug: 'wheatgrass-powder-pouch',
-  name: 'Wheatgrass Powder — Pouch',
-  shortName: 'Wheatgrass Powder — Pouch',
-  cardTitle: 'Wheatgrass Powder',
-  variantLabel: 'Pouch',
-  category: 'Daily Wellness Superfood',
-  weight: 'Packing 1',
-  price: '₹399',
-  originalPrice: '₹899',
-  priceMin: 399,
-  badge: 'Best Seller',
-  imgClass: 'product-img-wheatgrass',
+    id: 'wheatgrass-pouch',
+    slug: 'wheatgrass-powder-pouch',
+    name: 'Wheatgrass Powder — Pouch',
+    shortName: 'Wheatgrass Powder — Pouch',
+    cardTitle: 'Wheatgrass Powder',
+    variantLabel: 'Pouch',
+    category: 'Daily Wellness Superfood',
+    weight: 'Packing 1',
+    price: '₹399',
+    originalPrice: '₹899',
+    priceMin: 399,
+    badge: 'Best Seller',
+    imgClass: 'product-img-wheatgrass',
 
-  images: [
-  {
-    id: 'wheatgrass-pouch-01',
-    src: '/images/wgp.jpeg',
-    alt: 'MicroMagic Wheatgrass Powder Pouch',
+    images: [
+      {
+        id: 'wheatgrass-pouch-01',
+        src: '/images/wgp.jpeg',
+        alt: 'MicroMagic Wheatgrass Powder Pouch',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A simple botanical ritual in a convenient everyday pack.',
+    story:
+      'A straightforward format for customers who prefer a lightweight, easy-to-store pouch.',
+    description:
+      'Wheatgrass powder presented in the MicroMagic pouch format. Product-specific size, pricing, and detailed information can be added once the final packaging details are confirmed.',
+    benefits: [],
+    usage: [],
+    faqs: [],
+
+    highlights: ['Pouch Pack'],
+    servings: 'To be confirmed',
+    ingredient: 'Wheatgrass Powder',
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Wheatgrass Powder — Pouch. Please share the details.",
+    quickFacts: [
+      'Pouch Pack',
+      'Produced from carefully harvested young wheatgrass that is gently dried and finely milled to retain its natural green color and nutritional value',
+    ],
+    whyPeopleChoose: [],
+    dailyBenefits: [],
+    howToUseCards: [],
+    specifications: [
+      ['Packaging', 'Pouch'],
+      ['Product', 'Wheatgrass Powder'],
+    ],
+    certifications: [],
+    whyChooseMicroMagic: [],
+    beyondDailyUse: [],
+    waMessage:
+      "Hi MicroMagic! I'm interested in Wheatgrass Powder — Pouch. Please share the details.",
   },
-],
-
-  shortDescription: 'Our wheatgrass powder in a clean, resealable pouch format.',
-  tagline: 'A simple botanical ritual in a convenient everyday pack.',
-  story: 'A straightforward format for customers who prefer a lightweight, easy-to-store pouch.',
-  description: 'Wheatgrass powder presented in the MicroMagic pouch format. Product-specific size, pricing, and detailed information can be added once the final packaging details are confirmed.',
-  benefits: [],
-  usage: [],
-  faqs: [],
-
-  highlights: ['Pouch Pack'],
-  servings: 'To be confirmed',
-  ingredient: 'Wheatgrass Powder',
-  orderMessage: "Hi MicroMagic! I'm interested in Wheatgrass Powder — Pouch. Please share the details.",
-  quickFacts: ['Pouch Pack', 'Product details to be confirmed'],
-  whyPeopleChoose: [],
-  dailyBenefits: [],
-  howToUseCards: [],
-  specifications: [
-    ['Packaging', 'Pouch'],
-    ['Product', 'Wheatgrass Powder'],
-  ],
-  certifications: [],
-  whyChooseMicroMagic: [],
-  beyondDailyUse: [],
-  waMessage: "Hi MicroMagic! I'm interested in Wheatgrass Powder — Pouch. Please share the details.",
-},
 
   {
     id: 'wheatgrass-jar',
@@ -76,35 +92,47 @@ export const products = [
     priceMin: 499,
     badge: 'Jar Pack',
     imgClass: 'product-img-wheatgrass',
-    shortDescription: 'Our wheatgrass powder in a practical jar format.',
-    tagline: 'A familiar everyday format for an uncomplicated botanical routine.',
-    story: 'A jar format for customers who prefer a sturdy, reusable-feeling pack on the shelf.',
-    description: 'Wheatgrass powder presented in the MicroMagic jar format. Product-specific size, pricing, and detailed information can be added once the final packaging details are confirmed.',
+
+    images: [
+      {
+        id: 'wheatgrass-jar-01',
+        src: '/images/wgj.jpeg',
+        alt: 'MicroMagic Wheatgrass Powder Jar',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A familiar everyday format for an uncomplicated botanical routine.',
+    story:
+      'Organic Young Wheatgrass Source: Produced from carefully harvested young wheatgrass that is gently dried and finely milled to retain its natural green color and nutritional value.',
+    description:
+      'Wheatgrass powder presented in the MicroMagic jar format. Product-specific size, pricing, and detailed information can be added once the final packaging details are confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
 
-    images: [
-    {
-      id: 'wheatgrass-jar-01',
-      src: '/images/wgj.jpeg',
-      alt: 'MicroMagic Wheatgrass Powder Jar',
-    },
-  ],
-    
     highlights: ['Jar Pack'],
     servings: 'To be confirmed',
     ingredient: 'Wheatgrass Powder',
-    orderMessage: "Hi MicroMagic! I'm interested in Wheatgrass Powder — Jar. Please share the details.",
-    quickFacts: ['Jar Pack', 'Product details to be confirmed'],
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Wheatgrass Powder — Jar. Please share the details.",
+    quickFacts: [
+      'Jar Pack',
+      'Product details to be confirmed',
+    ],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Packaging', 'Jar'], ['Product', 'Wheatgrass Powder']],
+    specifications: [
+      ['Packaging', 'Jar'],
+      ['Product', 'Wheatgrass Powder'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Wheatgrass Powder — Jar. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Wheatgrass Powder — Jar. Please share the details.",
   },
 
   {
@@ -121,33 +149,47 @@ export const products = [
     priceMin: 299,
     badge: 'Pouch Pack',
     imgClass: 'product-img-moringa',
-    shortDescription: 'Moringa leaf powder in a clean, easy-to-store pouch format.',
-    tagline: 'A simple kitchen-friendly botanical staple.',
-    story: 'A pouch format designed for customers who prefer a lightweight pack for everyday storage.',
-    description: 'Moringa leaf powder presented in the MicroMagic pouch format. Final weight, pricing, usage guidance, and product-specific information can be added once confirmed.',
+
+    images: [
+      {
+        id: 'moringa-pouch-01',
+        src: '/images/mlp.jpeg',
+        alt: 'MicroMagic Moringa Leaf Powder Pouch',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A simple kitchen-friendly botanical staple.',
+    story:
+      'A Premium Organic Moringa: Made from carefully selected Moringa Oleifera leaves that are naturally processed to maintain quality and freshness.',
+    description:
+      'Moringa leaf powder presented in the MicroMagic pouch format. Final weight, pricing, usage guidance, and product-specific information can be added once confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'moringa-pouch-01',
-      src: '/images/mlp.jpeg',
-      alt: 'MicroMagic Moringa Leaf Powder Pouch',
-    },
-  ],
+
     highlights: ['Pouch Pack'],
     servings: 'To be confirmed',
     ingredient: 'Moringa Leaf Powder',
-    orderMessage: "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Pouch. Please share the details.",
-    quickFacts: ['Pouch Pack', 'Product details to be confirmed'],
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Pouch. Please share the details.",
+    quickFacts: [
+      'Pouch Pack',
+      'Product details to be confirmed',
+    ],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Packaging', 'Pouch'], ['Product', 'Moringa Leaf Powder']],
+    specifications: [
+      ['Packaging', 'Pouch'],
+      ['Product', 'Moringa Leaf Powder'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Pouch. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Pouch. Please share the details.",
   },
 
   {
@@ -164,33 +206,47 @@ export const products = [
     priceMin: 349,
     badge: 'Jar Pack',
     imgClass: 'product-img-moringa',
-    shortDescription: 'Moringa leaf powder in a practical jar format.',
-    tagline: 'A familiar format for a simple everyday kitchen ritual.',
-    story: 'A jar format for customers who prefer a sturdy container for their pantry shelf.',
-    description: 'Moringa leaf powder presented in the MicroMagic jar format. Final weight, pricing, usage guidance, and product-specific information can be added once confirmed.',
+
+    images: [
+      {
+        id: 'moringa-jar-01',
+        src: '/images/mlj.jpeg',
+        alt: 'MicroMagic Moringa Leaf Powder Jar',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A familiar format for a simple everyday kitchen ritual.',
+    story:
+      'Premium Organic Moringa: Made from carefully selected Moringa Oleifera leaves that are naturally processed to maintain quality and freshness.',
+    description:
+      'Moringa leaf powder presented in the MicroMagic jar format. Final weight, pricing, usage guidance, and product-specific information can be added once confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'moringa-jar-01',
-      src: '/images/mlj.jpeg',
-      alt: 'MicroMagic Moringa Leaf Powder Jar',
-    },
-  ],
+
     highlights: ['Jar Pack'],
     servings: 'To be confirmed',
     ingredient: 'Moringa Leaf Powder',
-    orderMessage: "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Jar. Please share the details.",
-    quickFacts: ['Jar Pack', 'Product details to be confirmed'],
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Jar. Please share the details.",
+    quickFacts: [
+      'Jar Pack',
+      'Product details to be confirmed',
+    ],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Packaging', 'Jar'], ['Product', 'Moringa Leaf Powder']],
+    specifications: [
+      ['Packaging', 'Jar'],
+      ['Product', 'Moringa Leaf Powder'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Jar. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Moringa Leaf Powder — Jar. Please share the details.",
   },
 
   {
@@ -207,33 +263,47 @@ export const products = [
     priceMin: 297,
     badge: 'Pouch Pack',
     imgClass: 'product-img-bluepea',
-    shortDescription: 'A calm botanical tea in a convenient pouch format.',
-    tagline: 'A visually distinctive tea ritual in an easy everyday pack.',
-    story: 'A pouch format for customers who prefer a lightweight tea pack that fits easily into the pantry.',
-    description: 'Butterfly pea tea presented in the MicroMagic pouch format. Final weight, pricing, and detailed product information can be added once confirmed.',
+
+    images: [
+      {
+        id: 'butterfly-pouch-01',
+        src: '/images/btp.jpeg',
+        alt: 'MicroMagic Butterfly Pea Tea Pouch',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A visually distinctive tea ritual in an easy everyday pack.',
+    story:
+      'Premium Organic Butterfly Pea Flowers: Carefully selected whole dried butterfly pea flowers that retain their natural blue color, floral aroma, and premium quality for a delightful herbal tea experience.',
+    description:
+      'Butterfly pea tea presented in the MicroMagic pouch format. Final weight, pricing, and detailed product information can be added once confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'butterfly-pouch-01',
-      src: 'public/images/btp.jpeg',
-      alt: 'MicroMagic Butterfly Pea Tea Pouch',
-    },
-  ],
+
     highlights: ['Pouch Pack'],
     servings: 'To be confirmed',
     ingredient: 'Butterfly Pea Tea',
-    orderMessage: "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Pouch. Please share the details.",
-    quickFacts: ['Pouch Pack', 'Product details to be confirmed'],
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Pouch. Please share the details.",
+    quickFacts: [
+      'Pouch Pack',
+      'Product details to be confirmed',
+    ],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Packaging', 'Pouch'], ['Product', 'Butterfly Pea Tea']],
+    specifications: [
+      ['Packaging', 'Pouch'],
+      ['Product', 'Butterfly Pea Tea'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Pouch. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Pouch. Please share the details.",
   },
 
   {
@@ -250,33 +320,47 @@ export const products = [
     priceMin: 399,
     badge: 'Jar Pack',
     imgClass: 'product-img-bluepea',
-    shortDescription: 'A calm botanical tea in a practical jar format.',
-    tagline: 'A composed tea ritual with a shelf-ready presentation.',
-    story: 'A jar format for customers who prefer a sturdy container for their tea collection.',
-    description: 'Butterfly pea tea presented in the MicroMagic jar format. Final weight, pricing, and detailed product information can be added once confirmed.',
+
+    images: [
+      {
+        id: 'butterfly-jar-01',
+        src: '/images/btj.jpeg',
+        alt: 'MicroMagic Butterfly Pea Tea Jar',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'A composed tea ritual with a shelf-ready presentation.',
+    story:
+      'Premium Organic Butterfly Pea Flowers: Carefully selected whole dried butterfly pea flowers that retain their natural blue color, floral aroma, and premium quality for a delightful herbal tea experience.',
+    description:
+      'Butterfly pea tea presented in the MicroMagic jar format. Final weight, pricing, and detailed product information can be added once confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'butterfly-jar-01',
-      src: '/images/btj.jpeg',
-      alt: 'MicroMagic Butterfly Pea Tea Jar',
-    },
-  ],
+
     highlights: ['Jar Pack'],
     servings: 'To be confirmed',
     ingredient: 'Butterfly Pea Tea',
-    orderMessage: "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Jar. Please share the details.",
-    quickFacts: ['Jar Pack', 'Product details to be confirmed'],
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Jar. Please share the details.",
+    quickFacts: [
+      'Jar Pack',
+      'Product details to be confirmed',
+    ],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Packaging', 'Jar'], ['Product', 'Butterfly Pea Tea']],
+    specifications: [
+      ['Packaging', 'Jar'],
+      ['Product', 'Butterfly Pea Tea'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Jar. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Butterfly Pea Tea — Jar. Please share the details.",
   },
 
   {
@@ -291,33 +375,44 @@ export const products = [
     priceMin: 298,
     badge: 'New',
     imgClass: 'product-img-bluepea',
-    shortDescription: 'A new botanical tea ritual from MicroMagic.',
-    tagline: 'Simple ingredients, thoughtfully prepared.',
-    story: 'Slimming Brew Tea is being prepared for the collection. Product-specific details will be added when the final information is confirmed.',
-    description: 'Product information for Slimming Brew Tea is coming soon. Final ingredients, pack size, pricing, usage, and other details will be added once confirmed.',
+
+    images: [
+      {
+        id: 'slimming-tea-01',
+        src: '/images/sbp.jpeg',
+        alt: 'MicroMagic Slimming Brew Tea',
+      },
+    ],
+
+    shortDescription: '',
+    tagline:
+      'Simple ingredients, thoughtfully prepared.',
+    story:
+      'Created as a convenient herbal tea for everyday use, this blend can be incorporated into your regular beverage routine as an alternative to conventional tea options.',
+    description:
+      'Product information for Slimming Brew Tea is coming soon. Final ingredients, pack size, pricing, usage, and other details will be added once confirmed.',
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'slimming-tea-01',
-      src: '/images/sbp.jpeg',
-      alt: 'MicroMagic Slimming Brew Tea Jar',
-    },
-  ],
+
     highlights: ['Coming to Collection'],
     servings: 'To be confirmed',
     ingredient: 'Details coming soon',
-    orderMessage: "Hi MicroMagic! I'm interested in Slimming Brew Tea. Please share the details.",
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Slimming Brew Tea. Please share the details.",
     quickFacts: ['Product details coming soon'],
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Product', 'Slimming Brew Tea'], ['Details', 'Coming soon']],
+    specifications: [
+      ['Product', 'Slimming Brew Tea'],
+      ['Details', 'Coming soon'],
+    ],
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Slimming Brew Tea. Please share the details.",
+    waMessage:
+      "Hi MicroMagic! I'm interested in Slimming Brew Tea. Please share the details.",
   },
 
   {
@@ -331,33 +426,55 @@ export const products = [
     priceMin: 300,
     badge: 'New',
     imgClass: 'product-img-moringa',
-    shortDescription: 'A traditional botanical powder joining the MicroMagic collection.',
-    tagline: 'A quieter approach to familiar botanical rituals.',
-    story: 'Triphla Powder is being prepared for the collection. Product-specific details will be added when the final information is confirmed.',
-    description: 'Product information for Triphla Powder is coming soon. Final ingredients, pack size, pricing, usage, and other details will be added once confirmed.',
+
+    images: [
+      {
+        id: 'triphla-01',
+        src: '/images/tpp.jpeg',
+        alt: 'MicroMagic Triphla Powder',
+      },
+    ],
+
+    shortDescription:
+      'Traditional Ayurvedic wellness in a simple daily botanical ritual.',
+
+    tagline:
+      'A quieter approach to familiar botanical rituals.',
+
+    story:
+      'Triphala Powder – Traditional Ayurvedic Wellness 🌿 A time-tested blend of Amalaki, Haritaki & Bibhitaki, traditionally used in Ayurveda to support digestive wellness, gentle cleansing and overall balance. A simple, natural addition to your daily wellness routine.',
+
+    description:
+      'Triphala Powder – Traditional Ayurvedic Wellness 🌿 A time-tested blend of Amalaki, Haritaki & Bibhitaki, traditionally used in Ayurveda to support digestive wellness, gentle cleansing and overall balance. A simple, natural addition to your daily wellness routine.',
+
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'triphla-jar-01',
-      src: '/images/tpp.jpeg',
-      alt: 'MicroMagic Triphla Powder Jar',
-    },
-  ],
+
     highlights: ['Coming to Collection'],
     servings: 'To be confirmed',
-    ingredient: 'Details coming soon',
-    orderMessage: "Hi MicroMagic! I'm interested in Triphla Powder. Please share the details.",
+    ingredient: 'Amalaki, Haritaki & Bibhitaki',
+
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Triphla Powder. Please share the details.",
+
     quickFacts: ['Product details coming soon'],
+
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Product', 'Triphla Powder'], ['Details', 'Coming soon']],
+
+    specifications: [
+      ['Product', 'Triphla Powder'],
+      ['Details', 'Coming soon'],
+    ],
+
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Triphla Powder. Please share the details.",
+
+    waMessage:
+      "Hi MicroMagic! I'm interested in Triphla Powder. Please share the details.",
   },
 
   {
@@ -371,32 +488,55 @@ export const products = [
     priceMin: 300,
     badge: 'New',
     imgClass: 'product-img-moringa',
-    shortDescription: 'A simple pantry staple joining the MicroMagic collection.',
-    tagline: 'Clean, uncomplicated everyday nutrition.',
-    story: 'Chia Seeds are being prepared for the collection. Product-specific details will be added when the final information is confirmed.',
-    description: 'Product information for Chia Seeds is coming soon. Final pack size, pricing, usage, and other details will be added once confirmed.',
+
+    images: [
+      {
+        id: 'chia-seeds-01',
+        src: '/images/csp.jpeg',
+        alt: 'MicroMagic Chia Seeds',
+      },
+    ],
+
+    shortDescription:
+      'Tiny seeds with simple, everyday nutritional value.',
+
+    tagline:
+      'Clean, uncomplicated everyday nutrition.',
+
+    story:
+      'Chia Seeds — Tiny Seeds, Big Nutrition. Naturally rich in fibre, plant-based omega-3s and essential nutrients, perfect for everyday wellness.',
+
+    description:
+      'Chia Seeds — Tiny Seeds, Big Nutrition. Naturally rich in fibre, plant-based omega-3s and essential nutrients, perfect for everyday wellness.',
+
     benefits: [],
     usage: [],
     faqs: [],
-    images: [
-    {
-      id: 'chia-seeds-01',
-      src: '/images/csp.jpeg',
-      alt: 'MicroMagic Chia Seeds Jar',
-    },
-  ],
+
+    highlights: ['Coming to Collection'],
     servings: 'To be confirmed',
     ingredient: 'Chia Seeds',
-    orderMessage: "Hi MicroMagic! I'm interested in Chia Seeds. Please share the details.",
+
+    orderMessage:
+      "Hi MicroMagic! I'm interested in Chia Seeds. Please share the details.",
+
     quickFacts: ['Product details coming soon'],
+
     whyPeopleChoose: [],
     dailyBenefits: [],
     howToUseCards: [],
-    specifications: [['Product', 'Chia Seeds'], ['Details', 'Coming soon']],
+
+    specifications: [
+      ['Product', 'Chia Seeds'],
+      ['Details', 'Coming soon'],
+    ],
+
     certifications: [],
     whyChooseMicroMagic: [],
     beyondDailyUse: [],
-    waMessage: "Hi MicroMagic! I'm interested in Chia Seeds. Please share the details.",
+
+    waMessage:
+      "Hi MicroMagic! I'm interested in Chia Seeds. Please share the details.",
   },
 ];
 
@@ -406,15 +546,19 @@ export const combos = [
     name: 'The Complete Wellness Kit',
     label: 'Most Popular',
     featured: true,
+
     products: [
       'Wheatgrass Powder — Pouch',
       'Moringa Leaf Powder — Pouch',
       'Butterfly Pea Tea — Pouch',
     ],
+
     price: '₹999',
     savings: 'Save ₹250+',
+
     description:
       'The full MicroMagic experience. Morning energy, daily nutrition, and a calming evening ritual — all in one box.',
+
     waMessage:
       "Hi MicroMagic! I'd like to order the Complete Wellness Kit (All 3 products) for ₹999. Please share payment and delivery details.",
   },
@@ -424,14 +568,18 @@ export const combos = [
     name: 'The Daily Essentials Duo',
     label: 'Great Start',
     featured: false,
+
     products: [
       'Wheatgrass Powder — Pouch',
       'Moringa Leaf Powder — Pouch',
     ],
+
     price: '₹699',
     savings: 'Save ₹100+',
+
     description:
       'The two most versatile products for a complete daily nutrition routine — wheatgrass in the morning, moringa in your meals.',
+
     waMessage:
       "Hi MicroMagic! I'd like to order the Daily Essentials Duo (Wheatgrass + Moringa) for ₹699. Please share payment and delivery details.",
   },
@@ -448,6 +596,7 @@ export const testimonials = [
     initial: 'P',
     avatarColor: 'from-sage to-forest',
   },
+
   {
     name: 'Rajwinder Kaur',
     location: 'Ludhiana',
@@ -458,6 +607,7 @@ export const testimonials = [
     initial: 'R',
     avatarColor: 'from-earth to-[#c49a5a]',
   },
+
   {
     name: 'Ananya Mehta',
     location: 'Delhi',
@@ -468,6 +618,7 @@ export const testimonials = [
     initial: 'A',
     avatarColor: 'from-moss to-sage',
   },
+
   {
     name: 'Harpreet Singh',
     location: 'Amritsar',
@@ -478,6 +629,7 @@ export const testimonials = [
     initial: 'H',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },
+
   {
     name: 'Sneha Iyer',
     location: 'Bengaluru',
@@ -488,6 +640,7 @@ export const testimonials = [
     initial: 'S',
     avatarColor: 'from-sage to-forest',
   },
+
   {
     name: 'Dev Malhotra',
     location: 'Gurugram',
@@ -498,6 +651,7 @@ export const testimonials = [
     initial: 'D',
     avatarColor: 'from-earth to-[#c49a5a]',
   },
+
   {
     name: 'Meenal Joshi',
     location: 'Pune',
@@ -508,6 +662,7 @@ export const testimonials = [
     initial: 'M',
     avatarColor: 'from-moss to-sage',
   },
+
   {
     name: 'Aftab Khan',
     location: 'Hyderabad',
@@ -518,6 +673,7 @@ export const testimonials = [
     initial: 'A',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },
+
   {
     name: 'Neha Arora',
     location: 'Jaipur',
@@ -528,6 +684,7 @@ export const testimonials = [
     initial: 'N',
     avatarColor: 'from-sage to-forest',
   },
+
   {
     name: 'Sandeep Nair',
     location: 'Kochi',
@@ -538,6 +695,7 @@ export const testimonials = [
     initial: 'S',
     avatarColor: 'from-earth to-[#c49a5a]',
   },
+
   {
     name: 'Ritika Bansal',
     location: 'Mumbai',
@@ -548,6 +706,7 @@ export const testimonials = [
     initial: 'R',
     avatarColor: 'from-moss to-sage',
   },
+
   {
     name: 'Vikas Tiwari',
     location: 'Lucknow',
@@ -558,6 +717,7 @@ export const testimonials = [
     initial: 'V',
     avatarColor: 'from-[#5a7a6a] to-forest',
   },
+
   {
     name: 'Farah Siddiqui',
     location: 'Kolkata',
@@ -568,6 +728,7 @@ export const testimonials = [
     initial: 'F',
     avatarColor: 'from-sage to-forest',
   },
+
   {
     name: 'Gitanjali Rao',
     location: 'Chennai',
@@ -578,6 +739,7 @@ export const testimonials = [
     initial: 'G',
     avatarColor: 'from-earth to-[#c49a5a]',
   },
+
   {
     name: 'Karan Bedi',
     location: 'Ahmedabad',
@@ -588,6 +750,7 @@ export const testimonials = [
     initial: 'K',
     avatarColor: 'from-moss to-sage',
   },
+
   {
     name: 'Pallavi Deshmukh',
     location: 'Nagpur',

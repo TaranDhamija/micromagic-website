@@ -59,7 +59,9 @@ export default function Home() {
       <section className="py-24 px-6 bg-forest relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_70%_at_0%_100%,rgba(78,124,95,0.28),transparent_60%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <p className="section-label reveal justify-center before:hidden text-mint">The MicroMagic Way</p>
+          <p className="section-label reveal justify-center before:hidden !text-white">
+  The MicroMagic Way
+</p>
           <h2 className="text-[clamp(34px,5vw,58px)] text-cream reveal reveal-delay-1 mb-5">
             Nature had the answer<br />
             <em className="italic text-goldlight">all along.</em>

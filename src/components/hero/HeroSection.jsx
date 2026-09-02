@@ -117,7 +117,7 @@ export default function HeroSection() {
 
             <Link
               to="/products"
-              className="group inline-flex items-center gap-3 text-sm font-medium text-cream/58 transition-colors duration-300 hover:text-cream"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-white transition-colors duration-300 hover:text-cream"
             >
               See all products
 

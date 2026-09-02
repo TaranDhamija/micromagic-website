@@ -73,15 +73,15 @@ export default function Contact() {
           <div className="reveal bg-forest rounded-[28px] p-10 md:p-14 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_80%,rgba(78,124,95,0.2),transparent)] pointer-events-none" />
             <div className="relative z-10">
-              <h2 className="font-serif text-3xl md:text-4xl text-cream mb-4">The fastest way to reach us</h2>
-              <p className="font-display text-xl text-cream/55 mb-8 max-w-lg mx-auto leading-relaxed">
+              <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">The fastest way to reach us</h2>
+              <p className="font-display text-xl text-white mb-8 max-w-lg mx-auto leading-relaxed">
                 Most customers place their order and get a confirmation within 15–30 minutes via WhatsApp.
               </p>
               <a href={waLink("Hi MicroMagic! I'd like to get in touch with your team.")} target="_blank" rel="noopener noreferrer" className="btn-wa inline-flex text-base px-10 py-5">
                 <WaIcon size={22} />
                 Message Us on WhatsApp
               </a>
-              <p className="text-cream/25 text-xs mt-5">+91 94170 27979 · micromagic.ceo@gmail.com</p>
+              <p className="text-white text-xs mt-5">+91 94170 27979 · micromagic.ceo@gmail.com</p>
             </div>
           </div>
         </div>

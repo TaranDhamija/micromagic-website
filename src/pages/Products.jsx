@@ -36,11 +36,11 @@ export default function Products() {
               </h1>
 
               {/* FIXED: BRIGHTER TEXT FOR READABILITY */}
-              <p className="font-display text-[22px] text-cream/88 leading-relaxed max-w-[720px]">
-                Each product is presented like an editorial object rather
-                than a catalogue item — with its own story, rhythm, and
-                gallery of quiet visual moments.
-              </p>
+              <p className="font-display text-[22px] text-white leading-relaxed max-w-[720px]">
+  Each product is presented like an editorial object rather
+  than a catalogue item — with its own story, rhythm, and
+  gallery of quiet visual moments.
+</p>
             </div>
 
             <div className="rounded-[32px] border border-cream/10 bg-cream/5 p-7 backdrop-blur-md">
@@ -49,10 +49,10 @@ export default function Products() {
               </p>
 
               {/* FIXED: BRIGHTER TEXT FOR READABILITY */}
-              <p className="font-display text-[28px] italic leading-[1.08] text-cream/92">
-                Browse by mood, ritual, and ingredient character — not just
-                by price.
-              </p>
+              <p className="font-display text-[28px] italic leading-[1.08] text-white">
+  Browse by mood, ritual, and ingredient character — not just
+  by price.
+</p>
             </div>
           </div>
         </div>

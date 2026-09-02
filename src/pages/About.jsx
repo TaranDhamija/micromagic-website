@@ -125,7 +125,7 @@ export default function About() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             {[
-              { num: '3', label: 'Products', sub: 'And we take every one seriously.' },
+              { num: '6', label: 'Products', sub: 'And we take every one seriously.' },
               { num: '0', label: 'Additives', sub: 'Not a single one. Ever.' },
               { num: '100%', label: 'Transparent', sub: 'Every ingredient listed.' },
             ].map((stat) => (
