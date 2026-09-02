@@ -87,7 +87,7 @@ export const products = [
     images: [
     {
       id: 'wheatgrass-jar-01',
-      src: 'public/images/wgj.jpeg',
+      src: '/images/wgj.jpeg',
       alt: 'MicroMagic Wheatgrass Powder Jar',
     },
   ],
