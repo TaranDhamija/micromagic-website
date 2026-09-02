@@ -131,7 +131,7 @@ export const products = [
     images: [
     {
       id: 'moringa-pouch-01',
-      src: 'public/images/mlp.jpeg',
+      src: '/images/mlp.jpeg',
       alt: 'MicroMagic Moringa Leaf Powder Pouch',
     },
   ],
@@ -174,7 +174,7 @@ export const products = [
     images: [
     {
       id: 'moringa-jar-01',
-      src: 'public/images/mlj.jpeg',
+      src: '/images/mlj.jpeg',
       alt: 'MicroMagic Moringa Leaf Powder Jar',
     },
   ],
@@ -260,7 +260,7 @@ export const products = [
     images: [
     {
       id: 'butterfly-jar-01',
-      src: 'public/images/btj.jpeg',
+      src: '/images/btj.jpeg',
       alt: 'MicroMagic Butterfly Pea Tea Jar',
     },
   ],
@@ -301,7 +301,7 @@ export const products = [
     images: [
     {
       id: 'slimming-tea-01',
-      src: 'public/images/sbp.jpeg',
+      src: '/images/sbp.jpeg',
       alt: 'MicroMagic Slimming Brew Tea Jar',
     },
   ],
@@ -341,7 +341,7 @@ export const products = [
     images: [
     {
       id: 'triphla-jar-01',
-      src: 'public/images/tpp.jpeg',
+      src: '/images/tpp.jpeg',
       alt: 'MicroMagic Triphla Powder Jar',
     },
   ],
@@ -381,7 +381,7 @@ export const products = [
     images: [
     {
       id: 'chia-seeds-01',
-      src: 'public/images/csp.jpeg',
+      src: '/images/csp.jpeg',
       alt: 'MicroMagic Chia Seeds Jar',
     },
   ],
